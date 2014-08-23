@@ -4,11 +4,13 @@
     <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="static/css/font-awesome.css">
     <link rel="stylesheet" href="text/css" href="static/css/bootstrap-social.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css')}}">
 
-    <script src={{ url_for("static", filename="js/jquery-2.1.1.js") }}></script>
-    <script src={{ url_for("static", filename="js/bootstrap.js") }}></script>
-    <script src= "http://js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
-    
+    <script src="{{ url_for('static', filename='js/jquery-2.1.1.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+    <script src="http://js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+
     <meta charset="UTF-8">
     <title>채팅</title>
     {% block favicon %}
