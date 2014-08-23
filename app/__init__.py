@@ -5,6 +5,8 @@ from app import settings
 app = Flask(__name__)
 app.config.from_object("app.settings.Production")
 
+oauth = OAuth()
+
 facebook = oauth.remote_app('facebook',
     base_url='https://graph.facebook.com/',
     request_token_url=None,
