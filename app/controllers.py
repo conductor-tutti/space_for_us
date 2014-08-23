@@ -1,11 +1,10 @@
 # -*- coding: UTF-8 -*-
-from flask import render_template, session, request, Flask, jsonify
+from flask import render_template, session, request, Flask, jsonify, redirect, url_for
 from app import app, facebook
 from datetime import datetime
 from time import time
 import pusher
 
-app.secret_key = "You will never know this key"
 
 @app.route('/')
 
@@ -20,7 +19,7 @@ def login():
 
 @app.route("/login/authorized")
 @facebook.authorized_handler
-def facebook_authorized_handler(resp):
+def facebook_authorized(resp):
     if resp is None:
         return "Access denied: reason=%s error=%s" % (
                 request.args["error_reason"],
