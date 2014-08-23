@@ -25,9 +25,9 @@ def facebook_authorized_handler(resp):
                 request.args["error_reason"],
                 request.args["error_description"]
             )
-        sesion["oauth_token"] = (resp["access_token"], "")
-        me = facebook.get("/me")
-        return str(me.data)
+    session["oauth_token"] = (resp["access_token"], "")
+    me = facebook.get("/me")
+    return str(me.data)
 
 @facebook.tokengetter
 def get_facebook_oauth_token():
