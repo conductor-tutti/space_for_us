@@ -9,10 +9,10 @@ import pusher
 @app.route('/')
 
 @app.route('/index')
-def index():
-    return redirect(url_for("login"))
+def chat():
+    return render_template("chat.html")
 
-@app.route("/login")
+@app.route("/login", methods=["POST"])
 def login():
     return facebook.authorize(callback = url_for("facebook_authorized",
         next=request.args.get("next") or request.referrer or None, _external=True))
@@ -21,13 +21,17 @@ def login():
 @facebook.authorized_handler
 def facebook_authorized(resp):
     if resp is None:
-        return "Access denied: reason=%s error=%s" % (
-                request.args["error_reason"],
-                request.args["error_description"]
-            )
+        # return "Access denied: reason=%s error=%s" % (
+        #         request.args["error_reason"],
+        #         request.args["error_description"]
+        #     )
+        return redirect(url_for("chat.html"))
     session["oauth_token"] = (resp["access_token"], "")
     me = facebook.get("/me")
-    return str(me.data)
+
+    session["username"] = me.data("name")
+    session["user_id"] = me.data("id")
+    return redirect(url_for("chat"))
 
 @facebook.tokengetter
 def get_facebook_oauth_token():
