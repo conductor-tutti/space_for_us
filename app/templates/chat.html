@@ -4,15 +4,41 @@
 <div class="row">
     <div class="col-md-3">
         <a class="btn btn-block btn-social btn-facebook" id="fblogin" href="{{ url_for('login') }}">
-            <i class="fa fa-facebook"></i>Sign in with Facebook
+            <i class="fa fa-facebook"></i>Login with Facebook
         </a>
-    </div>
-    <div class="col-md-7" id="chat_room">
-        <p>chat room here</p>
     </div>
 </div>
 
+<div class="row">
 
+    <!-- chat room -->
+    <div class="col-md-7" id="chat_room">
+        <h1>서로 행복을 나눕시다!</h1>
+    </div>
+
+
+    <!-- users -->
+    <div class="col-sm-3 users">
+        <h2>접속자</h2>
+    </div>
+    
+</div>
+
+<!-- Chat form -->
+<div class="form-group" id="message_field">
+    <label for="inputMessage" class="col-sm-1 control-label">
+        메시지
+    </label>
+
+    <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputMessage" name="message" maxlength="100" placeholder="100자 제한">
+    </div>
+
+    <button type="submit" id="submitMessage" class="btn btn-default">보내기!</button>
+</div>
+<!-- Chat form ends -->
+</div>
+</div>
 
 {% endblock %}
 </body>
