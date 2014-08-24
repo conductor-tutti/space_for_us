@@ -1,3 +1,11 @@
+body{
+    font-family: "Malgun Gothic", Verdana;
+}
+
 #chat_room{
-    display: none;
+    /*display: none;*/
+}
+
+#message_field{
+    /*display: none;*/
 }
