@@ -2,6 +2,10 @@ body{
     font-family: "Malgun Gothic", Verdana;
 }
 
+.chat_room_label{
+    font-size: 2em;
+}
+
 #chat_room{
     /*display: none;*/
 }
