@@ -1,51 +1,51 @@
 {% extends "base.html" %}
-
+{% block head %}
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+{% endblock %}
 {% block contents %}
 
-<div class="row">
-    <div class="col-md-3">
-        <a class="btn btn-block btn-social btn-facebook" id="fblogin" href="{{ url_for('login') }}">
-            <i class="fa fa-facebook"></i>Login with Facebook
-        </a>
-    </div>
-</div>
+<div class="box_1">
 
-<div class="row">
+    <div class="row">
 
-    <!-- chat room -->
-    <div class="col-md-9" id="chat_room">
-        <div class="chat_room_label">
-            서로 행복을 나눕시다!
+        <!-- chat room -->
+        <div class="col-md-9" id="chat_room">
+            <div class="chat_room_label">
+                행복을 나눠요!
+                <hr>
+            </div>
         </div>
-    </div>
 
 
-    <!-- users -->
-    <div class="col-sm-3" id="current_users">
-        <div class="chat_room_label">
-            접속자
+        <!-- users -->
+        <div class="col-sm-3" id="current_users">
+            <div class="chat_room_label">
+                접속자
+                <hr>
+            </div>
         </div>
+
     </div>
     
+    <hr>
+
+    <div class="row form-group" id="message_form">
+
+        <div class="col-md-11" id="messagefield">
+            <input type="text" class="form-control" id="input_message" name="message" maxlength="100" placeholder="100자 제한">
+        </div>
+
+        <div class="col-md-1" id="submitbt">
+            <button type="submit" id="submitMessage" class="btn btn-default">보내기!</button>
+        </div>
+
+    </div>
+
+
 </div>
 
 <!-- Chat form -->
 
-<div class="row form-group" id="message_form">
-
-    <div class="col-md-1">
-        메시지
-    </div>
-
-    <div class="col-md-10">
-        <input type="text" class="form-control" id="input_message" name="message" maxlength="100" placeholder="100자 제한">
-    </div>
-
-    <div class="col-md-1">
-        <button type="submit" id="submitMessage" class="btn btn-default">보내기!</button>
-    </div>
-
-</div>
 
 
 {% endblock %}
