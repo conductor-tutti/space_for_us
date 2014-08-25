@@ -6,6 +6,13 @@ from datetime import datetime
 from time import time
 import pusher
 
+p = pusher.Pusher(
+  app_id='86072',
+  key='9f04d3ecab45dc1b9f18',
+  secret='faf0e19b31b53cfa4b60'
+)
+p['presence-miniming'].trigger('my_event', {'message': 'hello world'})
+
 import logging
 
 @app.route('/')
